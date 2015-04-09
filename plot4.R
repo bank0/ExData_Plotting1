@@ -5,7 +5,10 @@ plot4 <- function() {
   df <- read.csv("household_power_consumption.txt",
                  header=TRUE,
                  sep=";",
-                 colClasses=c(Global_active_power="numeric", Sub_metering_1="numeric", Sub_metering_2="numeric", Sub_metering_3="numeric"),
+                 colClasses=c(Global_active_power="numeric",
+                              Sub_metering_1="numeric",
+                              Sub_metering_2="numeric",
+                              Sub_metering_3="numeric"),
                  na.strings="?")
 
   startDate = as.Date("1/02/2007", "%e/%m/%Y")
@@ -23,7 +26,11 @@ plot4 <- function() {
     plot(datetime,Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
     points(datetime,Sub_metering_2, col="red", type="l")
     points(datetime,Sub_metering_3, col="blue", type="l")
-    legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=1, col=c("black","red","blue"))
+    legend("topright",
+           c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
+           lty=1,
+           col=c("black","red","blue")
+          )
 
     plot(datetime,Global_reactive_power, type="l")
     }
